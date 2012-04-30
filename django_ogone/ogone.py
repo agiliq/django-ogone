@@ -1,6 +1,6 @@
 import logging
 
-log = logging.getLogger('djanongo_ogone')
+log = logging.getLogger('django_ogone')
 
 from django_ogone import status_codes
 
@@ -136,13 +136,13 @@ class Ogone(object):
     @staticmethod
     def get_action(production=None, settings=ogone_settings):
         """ Get the relevant action parameter from the settings. """
-        
+
         PROD_URL = settings.PROD_URL
         TEST_URL = settings.TEST_URL
-        
+
         assert isinstance(PROD_URL, unicode) or isinstance(PROD_URL, str)
         assert isinstance(TEST_URL, unicode) or isinstance(TEST_URL, str)
-        
+
         if production or settings.PRODUCTION:
             log.debug('Returning production URL: %s', PROD_URL)
             return PROD_URL
@@ -162,7 +162,7 @@ class Ogone(object):
 
         if not 'currency' in data:
             data['currency'] = settings.CURRENCY
-            
+
         data['PSPID'] = settings.PSPID
         data['SHASign'] = cls.sign(data, settings=settings)
 
