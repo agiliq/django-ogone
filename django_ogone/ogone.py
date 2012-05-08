@@ -22,7 +22,7 @@ class Ogone(object):
 
     def __init__(self, params=None, request=None, settings=ogone_settings):
         # This allows us to override settings for the whole class
-        self.settings=settings
+        self.settings = settings
 
         assert request or params, \
             'Please specify either a request or a set of parameters'
@@ -192,4 +192,3 @@ class Ogone(object):
 
     def get_status_category(self):
         return status_codes.get_status_category(self.get_status())
-

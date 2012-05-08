@@ -1,3 +1,5 @@
+import logging
+
 # coding=utf8
 """
 Status of the payment.
@@ -107,10 +109,12 @@ EXCEPTION_STATUS = 'exception'
 CANCEL_CODES = (1, )
 CANCEL_STATUS = 'cancel'
 
+
 def get_status_description(status):
     assert isinstance(status, int)
 
     return STATUS_DESCRIPTIONS[status]
+
 
 def get_status_category(status):
     """ The Ogone API allows for four kind of results:

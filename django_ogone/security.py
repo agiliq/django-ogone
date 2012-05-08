@@ -1,6 +1,8 @@
-import hashlib, logging
+import hashlib
+import logging
 
 log = logging.getLogger('djanongo_ogone')
+
 
 class OgoneSignature(object):
     '''
@@ -83,7 +85,7 @@ class OgoneSignature(object):
         return valid
 
     def _merge_data(self, data):
-        pairs = ['%s=%s' % (k, v) for k,v in data]
+        pairs = ['%s=%s' % (k, v) for k, v in data]
         pre_sign_string = self.secret.join(pairs) + self.secret
         return pre_sign_string
 
@@ -94,16 +96,16 @@ class OgoneSignature(object):
 
     def signature(self):
         log.debug('Making signature for data: %s', self.data)
-        
+
         sorted_data = self._sort_data(self.data)
         log.debug('Sorted data: %s', sorted_data)
-        
+
         pre_sign_string = self._merge_data(sorted_data)
         log.debug('String to sign: (normal) %s', pre_sign_string)
-        
+
         signed = self._sign_string(pre_sign_string)
         log.debug('Signed data: %s', signed)
-                
+
         return signed
 
     def __unicode__(self):
