@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import logging
 
-# coding=utf8
 """
 Status of the payment.
 
