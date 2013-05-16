@@ -1,7 +1,7 @@
 import hashlib
 import logging
 
-log = logging.getLogger('djanongo_ogone')
+log = logging.getLogger('django_ogone')
 
 
 class OgoneSignature(object):
